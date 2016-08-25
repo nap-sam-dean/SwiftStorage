@@ -32,7 +32,6 @@
 		CCABC4C43F7274D4335C414331EC6D3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5D243283F8E0498170803F04082ED50 /* Foundation.framework */; };
 		D234B23ACC5F69B9BE581EC70C15F8DE /* LocksmithInternetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6EC0AA8A9728D97A43DAEEE9FF241B /* LocksmithInternetProtocol.swift */; };
 		DBA747D01AD236A09D8F931BA495CD96 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B6ED16F7F7AA4A880DC38B151FF6DD /* Storage.swift */; };
-		E51F2D031D6F1F3F00996F21 /* Storer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F2D021D6F1F3F00996F21 /* Storer.swift */; };
 		FE49FA292C84C9630F7275BEC7CAE31E /* Pods-Storage_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0944F8AF2846EC44AA9D5361D014010D /* Pods-Storage_Tests-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +106,6 @@
 		DF7FBB96F43A1C583275363C3D7B6F3E /* Pods-Storage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Storage_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E12C9442C3B20B3ADFCE4DE7CD0F8AAA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E158AB0A548D12C24FC6C15844F07BBD /* Storage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Storage-prefix.pch"; sourceTree = "<group>"; };
-		E51F2D021D6F1F3F00996F21 /* Storer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storer.swift; sourceTree = "<group>"; };
 		EA9A8A1ED14DDD5A429BB9E2A5EF1E9F /* LocksmithSecurityClass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithSecurityClass.swift; path = Source/LocksmithSecurityClass.swift; sourceTree = "<group>"; };
 		EF660712B5682F2D1F9275E38C6F6825 /* LocksmithAccessibleOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocksmithAccessibleOption.swift; path = Source/LocksmithAccessibleOption.swift; sourceTree = "<group>"; };
 		F5D243283F8E0498170803F04082ED50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -188,7 +186,6 @@
 				4074A375043C2F788DE7F4550FE8FCFB /* KeychainStorage.swift */,
 				C4B6ED16F7F7AA4A880DC38B151FF6DD /* Storage.swift */,
 				F653CC709F24CEFF2DF9D2D9D910F99B /* UserDefaultsStorage.swift */,
-				E51F2D021D6F1F3F00996F21 /* Storer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -484,7 +481,6 @@
 			files = (
 				8C7349874113662137A6E5EEA63FDE43 /* FileStorage.swift in Sources */,
 				360D7BC179C80857D6341BE2179C9481 /* KeychainStorage.swift in Sources */,
-				E51F2D031D6F1F3F00996F21 /* Storer.swift in Sources */,
 				50404455EA064B17E7D66D35EFB69A08 /* Storage-dummy.m in Sources */,
 				DBA747D01AD236A09D8F931BA495CD96 /* Storage.swift in Sources */,
 				171308AE338F1F8309E9A2D3C2DDA3E1 /* UserDefaultsStorage.swift in Sources */,
