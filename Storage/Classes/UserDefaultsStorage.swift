@@ -12,31 +12,29 @@ import Foundation
 public final class UserDefaultsStorage<StorableType: Storable>: Storage {
     
     let defaults: NSUserDefaults
-    let key: String
     
-    public init(defaults: NSUserDefaults, key: String) {
+    public init(defaults: NSUserDefaults) {
         self.defaults = defaults
-        self.key = key
     }
     
-    public func store(value: StorableType) throws {
+    public func store(value: StorableType, forKey key: String) throws {
         let encoded = try value.storedResult()
     
         let data = NSKeyedArchiver.archivedDataWithRootObject(encoded)
         
-        self.defaults.setObject(data, forKey: self.key)
+        self.defaults.setObject(data, forKey: key)
     }
     
-    public func store(values: [StorableType]) throws {
+    public func store(values: [StorableType], forKey key: String) throws {
         let encoded = try values.map { try $0.storedResult() }
         
         let data = NSKeyedArchiver.archivedDataWithRootObject(encoded)
         
-        self.defaults.setObject(data, forKey: self.key)
+        self.defaults.setObject(data, forKey: key)
     }
     
-    public func retrieve() throws -> StorableType? {
-        guard let object = self.defaults.objectForKey(self.key) else {
+    public func retrieve(forKey key: String) throws -> StorableType? {
+        guard let object = self.defaults.objectForKey(key) else {
             return nil
         }
         
@@ -55,8 +53,8 @@ public final class UserDefaultsStorage<StorableType: Storable>: Storage {
         return value
     }
     
-    public func retrieve() throws -> [StorableType]? {
-        guard let object = self.defaults.objectForKey(self.key) else {
+    public func retrieve(forKey key: String) throws -> [StorableType]? {
+        guard let object = self.defaults.objectForKey(key) else {
             return nil
         }
         

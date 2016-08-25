@@ -16,25 +16,29 @@ public final class FileStorage<StorableType: Storable>: Storage {
     public init(path: String) {
         self.path = path
     }
-    
-    public func store(value: StorableType) throws {
+        
+    private func pathForKey(key: String) -> String {
+        return "\(self.path).\(key)"
+    }
+
+    public func store(value: StorableType, forKey key: String) throws {
         let dictionary = try value.storedResult()
         
-        guard NSKeyedArchiver.archiveRootObject(dictionary, toFile: self.path) else {
+        guard NSKeyedArchiver.archiveRootObject(dictionary, toFile: self.pathForKey(key)) else {
             throw StorageError.archiveFailed(encodedValue: dictionary, path: path)
         }
     }
     
-    public func store(values: [StorableType]) throws {
+    public func store(values: [StorableType], forKey key: String) throws {
         let dictionaries: [StoredResult] = try values.map { return try $0.storedResult() }
         
-        guard NSKeyedArchiver.archiveRootObject(dictionaries, toFile: self.path) else {
+        guard NSKeyedArchiver.archiveRootObject(dictionaries, toFile: self.pathForKey(key)) else {
             throw StorageError.archiveFailed(encodedValue: dictionaries, path: path)
         }
     }
     
-    public func retrieve() throws -> StorableType? {
-        guard let unarchived = NSKeyedUnarchiver.unarchiveObjectWithFile(self.path) else {
+    public func retrieve(forKey key: String) throws -> StorableType? {
+        guard let unarchived = NSKeyedUnarchiver.unarchiveObjectWithFile(self.pathForKey(key)) else {
             return nil
         }
         
@@ -49,8 +53,8 @@ public final class FileStorage<StorableType: Storable>: Storage {
         return value
     }
     
-    public func retrieve() throws -> [StorableType]? {
-        guard let unarchived = NSKeyedUnarchiver.unarchiveObjectWithFile(self.path) else {
+    public func retrieve(forKey key: String) throws -> [StorableType]? {
+        guard let unarchived = NSKeyedUnarchiver.unarchiveObjectWithFile(self.pathForKey(key)) else {
             return nil
         }
 

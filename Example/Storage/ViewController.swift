@@ -41,23 +41,39 @@ class ViewController: UIViewController {
         
         let object = ExampleStruct(name: "Bob", age: 99)
         
-        let storage = AnyStorage(UserDefaultsStorage<ExampleStruct>(defaults: NSUserDefaults.standardUserDefaults(), key: "example"))
         
-        try! storage.store(object)
+        // Example of user defaults
+        let userDefaultStorage = AnyStorage(UserDefaultsStorage<ExampleStruct>(defaults: NSUserDefaults.standardUserDefaults()))
+        try! userDefaultStorage.store(object, forKey: "example")
         
         // Prove that the user defaults has that key set
         print(NSUserDefaults.standardUserDefaults().objectForKey("example")!)
         
         // Extract and print the object again
-        let o2: ExampleStruct = try! storage.retrieve()!
+        let o2: ExampleStruct = try! userDefaultStorage.retrieve(forKey: "example")!
         print(o2)
         
-        doSomething(storage)
+        
+        // Example of file storage
+        let path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first! + "/storage"
+        //print("Storing at path \(path)")
+        let fileStorage = AnyStorage(FileStorage<ExampleStruct>(path: path))
+        try! fileStorage.store(object, forKey: "example")
+        
+        // Extract and print the object again
+        let o3: ExampleStruct = try! userDefaultStorage.retrieve(forKey: "example")!
+        print(o3)
+        
+        
+        
+        
+        // Show passing AnyStorage around works
+        doSomething(userDefaultStorage)
     }
     
     // Show how to use AnyStorage to pass around Storage<> instances
     func doSomething(storage: AnyStorage<ExampleStruct>) {
-        let object: ExampleStruct = try! storage.retrieve()!
+        let object: ExampleStruct = try! storage.retrieve(forKey: "example")!
         print(object)
     }
 }

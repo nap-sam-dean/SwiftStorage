@@ -45,13 +45,13 @@ public protocol Storable {
 public protocol Storage {
     associatedtype StorableType: Storable
     
-    func store(value: StorableType) throws
+    func store(value: StorableType, forKey key: String) throws
     
-    func store(values: [StorableType]) throws
+    func store(values: [StorableType], forKey key: String) throws
     
-    func retrieve() throws -> StorableType?
+    func retrieve(forKey key: String) throws -> StorableType?
     
-    func retrieve() throws -> [StorableType]?
+    func retrieve(forKey key: String) throws -> [StorableType]?
 }
 
 
@@ -70,10 +70,10 @@ public protocol Storage {
  */
 public final class AnyStorage<StorableType: Storable>: Storage {
     
-    private let _store: (value: StorableType) throws -> ()
-    private let _storeA: (value: [StorableType]) throws -> ()
-    private let _retrieve: () throws -> StorableType?
-    private let _retrieveA: () throws -> [StorableType]?
+    private let _store: (value: StorableType, forKey: String) throws -> ()
+    private let _storeA: (value: [StorableType], forKey: String) throws -> ()
+    private let _retrieve: (forKey: String) throws -> StorableType?
+    private let _retrieveA: (forKey: String) throws -> [StorableType]?
     
     required public init<U: Storage where StorableType == U.StorableType>(_ storage: U) {
         _store = storage.store
@@ -82,19 +82,19 @@ public final class AnyStorage<StorableType: Storable>: Storage {
         _retrieveA = storage.retrieve
     }
     
-    public func store(value: StorableType) throws {
-        try _store(value: value)
+    public func store(value: StorableType, forKey key: String) throws {
+        try _store(value: value, forKey: key)
     }
     
-    public func store(value: [StorableType]) throws {
-        try _storeA(value: value)
+    public func store(value: [StorableType], forKey key: String) throws {
+        try _storeA(value: value, forKey: key)
     }
     
-    public func retrieve() throws -> StorableType? {
-        return try _retrieve()
+    public func retrieve(forKey key: String) throws -> StorableType? {
+        return try _retrieve(forKey: key)
     }
     
-    public func retrieve() throws -> [StorableType]? {
-        return try _retrieveA()
+    public func retrieve(forKey key: String) throws -> [StorableType]? {
+        return try _retrieveA(forKey: key)
     }
 }
