@@ -45,6 +45,7 @@
 		A7CCC020AB44B6770642AE5C /* Pods-Storage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Storage_Example/Pods-Storage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C379D1A45D15E169540E51BD /* Pods-Storage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Storage_Tests/Pods-Storage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C41C2DE543FDB5B50BD6F879 /* Pods_Storage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Storage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E51F2D011D6DFADD00996F21 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; };
 		EF340F989E2E0B60D79F24A5 /* Storage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Storage.podspec; path = ../Storage.podspec; sourceTree = "<group>"; };
 		F9D895E0A1ECDF9C0079EE73 /* Pods-Storage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Storage_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Storage_Tests/Pods-Storage_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +84,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				E51F2D011D6DFADD00996F21 /* Playground.playground */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Storage */,
 				607FACE81AFB9204008FA782 /* Tests */,

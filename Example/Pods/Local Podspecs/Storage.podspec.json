@@ -1,0 +1,27 @@
+{
+  "name": "Storage",
+  "version": "0.1.0",
+  "summary": "A short description of Storage.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/Storage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Sam Dean": "sam.dean@net-a-porter.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/Storage.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Storage/Classes/**/*",
+  "dependencies": {
+    "Locksmith": [
+
+    ]
+  }
+}

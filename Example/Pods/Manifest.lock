@@ -1,0 +1,19 @@
+PODS:
+  - Locksmith (2.0.8)
+  - Storage (0.1.0):
+    - Locksmith
+
+DEPENDENCIES:
+  - Storage (from `../`)
+
+EXTERNAL SOURCES:
+  Storage:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  Storage: be0daac26c430b0b445c878f20635a797be34fe5
+
+PODFILE CHECKSUM: 238da9d699f791759cc2b31b97b286bd7ef1525e
+
+COCOAPODS: 1.0.1
